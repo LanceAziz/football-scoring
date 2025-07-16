@@ -1,10 +1,9 @@
-import Image from "next/image";
-import GroupdCard from "./components/group-card/groupCard";
+import Groups from "./pages/groups/groups";
 
 export default function Home() {
   return (
     <div>
-      <GroupdCard />
+      <Groups />
     </div>
   );
 }
