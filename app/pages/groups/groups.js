@@ -1,8 +1,21 @@
-import React from 'react'
-import { groups } from '@/app/data/data';
+"use client"
+import React, { useEffect, useState } from 'react'
 import GroupdCard from '@/app/components/group-card/groupCard';
+import { getDatabase, ref, onValue } from "firebase/database";
+import { app } from "@/app/database/database";
 
 function Groups() {
+    const [groups, setGroups] = useState([]);
+
+    useEffect(() => {
+        const db = getDatabase(app);
+        const groupsRef = ref(db, "groups");
+        const unsubscribe = onValue(groupsRef, (snapshot) => {
+            setGroups(snapshot.exists() ? snapshot.val() : []);
+        });
+        return () => unsubscribe();
+    }, []);
+
     return (
         <div className='container-fluid'>
             <div className='p-5'>

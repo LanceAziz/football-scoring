@@ -23,19 +23,24 @@ function GroupCard({ group }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {group.teams.map((team, index) => {
-                        return (<tr key={index}>
-                            <th><div className={`rounded-circle px-2 py-1 ${index < 2 && "bg-success"}`}>{team.id}</div></th>
-                            <td className='text-start'>{team.name}</td>
-                            <td>{team.played}</td>
-                            <td>{team.won}</td>
-                            <td>{team.drawn}</td>
-                            <td>{team.lost}</td>
-                            <td>{`${team.goals[0]} : ${team.goals[1]}`}</td>
-                            <td>{team.points}</td>
-                        </tr>
-                        )
-                    })}
+                    {[...group.teams]
+                        .sort((a, b) => b.points - a.points)
+                        .map((team, index) => (
+                            <tr key={index}>
+                                <th>
+                                    <div className={`rounded rounded-3 px-2 py-1 ${index < 2 && "bg-success"}`}>
+                                        {index+1}
+                                    </div>
+                                </th>
+                                <td className='text-start'>{team.name}</td>
+                                <td>{team.played}</td>
+                                <td>{team.won}</td>
+                                <td>{team.drawn}</td>
+                                <td>{team.lost}</td>
+                                <td>{`${team.goals[0]} : ${team.goals[1]}`}</td>
+                                <td>{team.points}</td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
         </div>
