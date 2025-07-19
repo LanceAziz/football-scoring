@@ -4,7 +4,7 @@ import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 
 function GroupCard({ group }) {
     return (
-        <div className='text-center bg-dark text-white p-5 rounded rounded-5' style={{ width: '30%' }}>
+        <div className='text-center bg-dark text-white p-5 rounded rounded-5 w-100'>
             <div className='d-inline-flex align-items-center justify-content-between mb-3'>
                 <FontAwesomeIcon className='text-warning' icon={faTrophy} size="2x" />
                 <h2 className='ps-3 fs-1'>{group.name}</h2>

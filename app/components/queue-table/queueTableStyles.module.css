@@ -1,0 +1,5 @@
+.dark-strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: #dc3545;
+}

@@ -1,0 +1,14 @@
+.scroll-50 {
+    overflow-y: auto;
+    max-height: 50vh;
+}
+
+.scroll-50::-webkit-scrollbar {
+    width: 8px;
+    background: #222;
+}
+
+.scroll-50::-webkit-scrollbar-thumb {
+    background: #FBBC04;
+    border-radius: 4px;
+}
