@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import styles from '@/app/pages/queue/queueStyles.module.css'
 import { getDatabase, ref, onValue } from "firebase/database";
 import { app } from "@/app/database/database";
-import QueueTable from '@/app/components/queue-table/queueTable';
+import QueueTable from '@/app/components/queueTable/queueTable';
 
 function Queue() {
     const [courtQueue, setCourtQueue] = useState([]);
@@ -21,7 +21,7 @@ function Queue() {
         <div>
             {
                 courtQueue.map((table, index) => (
-                    <div key={index} className={`${index === 0 && 'border-bottom border-warning border-3 '} overflow-auto ${styles['scroll-50']}`}>
+                    <div key={index} className={`${index === 0 && 'border-bottom border-success border-3 '} overflow-auto ${styles['scroll-50']}`}>
                         <QueueTable table={table} />
                     </div>
                 )

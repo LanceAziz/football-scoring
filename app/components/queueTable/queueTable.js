@@ -52,7 +52,8 @@ function QueueTable({ table }) {
                                     <th>{match.id}</th>
                                     <td className={
                                         unplayedIndexes.indexOf(index) === 0 ? "text-success" :
-                                        unplayedIndexes.indexOf(index) === 1 && "text-warning"
+                                        unplayedIndexes.indexOf(index) === 1 ? "text-warning" :
+                                        "text-white"
                                     }>
                                         {timeLabel}
                                     </td>

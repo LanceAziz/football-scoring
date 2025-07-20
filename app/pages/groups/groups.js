@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import GroupdCard from '@/app/components/group-card/groupCard';
+import GroupdCard from '@/app/components/groupCard/groupCard';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { app } from "@/app/database/database";
 
