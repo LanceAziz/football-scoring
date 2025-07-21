@@ -27,7 +27,9 @@ function QueueTable({ table }) {
                             <th>#</th>
                             <th>Time Remaining</th>
                             <th>Team 1</th>
+                            <th>Score</th>
                             <th>Team 2</th>
+                            <th>Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,19 +48,19 @@ function QueueTable({ table }) {
                                 }
                             }
                             return (
-                                <tr key={index}
-                                    className={match.isPlayed ? styles["dark-strike"] : ""}
-                                >
-                                    <th>{match.id}</th>
+                                <tr key={index}>
+                                    <th className={match.isPlayed ? styles["dark-strike"] : ""}>{match.id}</th>
                                     <td className={
-                                        unplayedIndexes.indexOf(index) === 0 ? "text-success" :
-                                        unplayedIndexes.indexOf(index) === 1 ? "text-warning" :
-                                        "text-white"
+                                        `${unplayedIndexes.indexOf(index) === 0 ? "text-success" :
+                                            unplayedIndexes.indexOf(index) === 1 ? "text-warning" :
+                                                "text-white"} ${match.isPlayed ? styles["dark-strike"] : ""}`
                                     }>
                                         {timeLabel}
                                     </td>
-                                    <td>{match.team1}</td>
-                                    <td>{match.team2}</td>
+                                    <td className={match.isPlayed ? styles["dark-strike"] : ""}>{match.team1}</td>
+                                    <td >{match.team1_score}</td>
+                                    <td className={match.isPlayed ? styles["dark-strike"] : ""}>{match.team2}</td>
+                                    <td>{match.team2_score}</td>
                                 </tr>
                             )
                         })}
