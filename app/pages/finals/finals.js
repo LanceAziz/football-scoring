@@ -22,6 +22,7 @@ function Finals() {
                 <div className='col-3 my-1 text-center'>
                     <FontAwesomeIcon className='text-warning fa-7x' icon={faTrophy} />
                     <FinalMatchCard />
+                    <FinalMatchCard />
                 </div>
                 <div className='col-3 my-1'>
                     <FinalMatchCard />
