@@ -1,13 +1,29 @@
+"use client"
 import FinalMatchCard from '@/app/components/finalMatchCard/finalMatchCard'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy } from '@fortawesome/free-solid-svg-icons'
-import { finalMatches } from '@/app/tempdata'
+import { getDatabase, ref, onValue } from "firebase/database";
+import { app } from "@/app/database/database";
 
 function Finals() {
+
+    const [finals, setFinals] = useState([]);
+
+    useEffect(() => {
+        const db = getDatabase(app);
+        const finalsRef = ref(db, "finalMatches");
+        const unsubscribe = onValue(finalsRef, (snapshot) => {
+            setFinals(snapshot.exists() ? snapshot.val() : []);
+            console.log("Finals data loaded successfully", snapshot.val());
+        });
+        return () => unsubscribe();
+
+    }, []);
+
     return (
         <div className='px-3 pt-4 d-flex flex-column-reverse'>
-            {Object.entries(finalMatches).map(([round, matches], roundIdx) => (
+            {Object.entries(finals).map(([round, matches], roundIdx) => (
                 <div key={roundIdx} className='mb-4'>
                     <div className={`${round != 'finals' ? 'row' : 'd-flex flex-column justify-content-center align-items-center'} ${round == 'semi_finals' ? 'justify-content-around' : 'justify-content-center'}`}>
                         {matches.map((match, idx) => (
