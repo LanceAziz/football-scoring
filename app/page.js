@@ -25,8 +25,8 @@ export default function Home() {
         </div>
       </div>
       {isFinalsShown && (
-        <div className="modal fade show d-block" tabIndex="-1" style={{ background: "rgba(0,0,0,0.8)" }}>
-          <div className="modal-dialog modal-xl">
+        <div className={`modal fade show d-block ${styles['scroll-100']}`} tabIndex="-1" style={{ background: "rgba(0,0,0,0.8)" }}>
+          <div className={`modal-dialog modal-xl `}>
             <div className="modal-content bg-dark text-white rounded-5">
               <div className="modal-header px-4">
                 <h5 className="modal-title">Finals</h5>
