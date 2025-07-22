@@ -14,8 +14,8 @@ function Finals() {
         const db = getDatabase(app);
         const finalsRef = ref(db, "finalMatches");
         const unsubscribe = onValue(finalsRef, (snapshot) => {
-            setFinals(snapshot.exists() ? snapshot.val() : []);
             console.log("Finals data loaded successfully", snapshot.val());
+            setFinals(snapshot.exists() ? snapshot.val() : []);
         });
         return () => unsubscribe();
 
@@ -25,7 +25,7 @@ function Finals() {
         <div className='px-3 pt-4 d-flex flex-column-reverse'>
             {Object.entries(finals).map(([round, matches], roundIdx) => (
                 <div key={roundIdx} className='mb-4'>
-                    <div className={`${round != 'finals' ? 'row' : 'd-flex flex-column justify-content-center align-items-center'} ${round == 'semi_finals' ? 'justify-content-around' : 'justify-content-center'}`}>
+                    <div className={`${round != 'c_finals' ? 'row' : 'd-flex flex-column justify-content-center align-items-center'} ${round == 'semi_finals' ? 'justify-content-around' : 'justify-content-center'}`}>
                         {matches.map((match, idx) => (
                             <div key={idx} className="col-3 mb-3 d-flex flex-column-reverse">
                                 <FinalMatchCard match={match} />

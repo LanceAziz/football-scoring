@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Football Scoring",
-  description: "Football Scoring",
+  title: "Anbya Football Scoring",
+  description: "Anbya Football Scoring",
 };
 
 export default function RootLayout({ children }) {
